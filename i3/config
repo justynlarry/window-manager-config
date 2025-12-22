@@ -1,0 +1,190 @@
+# ─────────────────────────────────────
+#   i3 CONFIG for MacBook Pro A1502
+#   Debian Edition
+# ─────────────────────────────────────
+
+set $mod Mod4
+
+# Font
+font pango:DejaVu Sans Mono 10
+
+# Start a terminal
+bindsym $mod+Return exec alacritty
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Rofi launcher (better than dmenu)
+bindsym $mod+d exec rofi -show drun
+
+# dmenu fallback
+bindsym $mod+Shift+d exec dmenu_run
+
+# Change focus (vim keys)
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Alternative arrow keys
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Alternative arrow keys
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Split orientation
+bindsym $mod+v split v
+bindsym $mod+b split h
+
+# Fullscreen toggle
+bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# Toggle floating
+bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling/floating
+bindsym $mod+space focus mode_toggle
+
+# Focus parent container
+bindsym $mod+a focus parent
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+# Switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# Move container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# Reload i3 config
+bindsym $mod+Shift+c reload
+
+# Restart i3
+bindsym $mod+Shift+r restart
+
+# Exit i3
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
+
+# Resize mode
+mode "resize" {
+    # vim keys
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+
+    # arrow keys
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# MacBook-specific: Brightness controls
+bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+
+# Volume controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+# Screenshot (requires scrot)
+bindsym $mod+p exec --no-startup-id scrot ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
+bindsym $mod+Shift+p exec --no-startup-id scrot -s ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
+
+# Lock screen
+bindsym $mod+Shift+x exec i3lock -c 000000
+
+# Lock screen on suspend/hibernate (e.g., when closing the lid)
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+# Startup applications
+exec --no-startup-id picom --backend xrender --vsync
+exec --no-startup-id feh --bg-fill /home/larryman/Pictures/desert-doom-sand-dunes-dark-background-monochrome-landscape-3840x2160-6409.jpg
+exec --no-startup-id nm-applet
+exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec_always --no-startup-id ~/.config/polybar/launch.sh
+
+# Startup Scrips for Screen/Workstation Setup
+exec --no-startup-id /home/larryman/.config/i3/startup_script_master.sh
+
+# i3bar configuration
+#bar {
+#    status_command i3status
+#    position top
+#    
+#    colors {
+#        background #282a36
+#        statusline #f8f8f2
+#        separator  #44475a
+#        
+#        focused_workspace  #44475a #44475a #f8f8f2
+#        active_workspace   #282a36 #44475a #f8f8f2
+#        inactive_workspace #282a36 #282a36 #bfbfbf
+#        urgent_workspace   #ff5555 #ff5555 #f8f8f2
+#    }
+#}
+
+# Window colors (Personal  Theme)
+#			border  bckgrnd text    indctr    child-border
+client.focused          #48494a #48494a #FFFFFF #48494a   #002fa7
+client.focused_inactive #2C2C2C #2C2C2C #888888 #2C2C2C   #2C2C2C
+client.unfocused        #1C1C1C #1C1C1C #888888 #2C2C2C   #2C2C2C
+client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555   #ff5555
+
+# Window borders
+default_border pixel 2
+default_floating_border pixel 2

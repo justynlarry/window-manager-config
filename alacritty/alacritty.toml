@@ -1,0 +1,64 @@
+# Alacritty Configuration (Debian Edition)
+# Modern TOML format
+
+[window]
+opacity = 0.1
+padding = { x = 6, y = 6 }
+decorations = "transparent"
+dynamic_padding = false
+blur = false
+
+[font]
+normal = { family = "DejaVu Sans Mono", style = "Regular" }
+bold = { family = "DejaVu Sans Mono", style = "Bold" }
+italic = { family = "DejaVu Sans Mono", style = "Italic" }
+size = 5
+
+[colors]
+transparent_background_colors = false
+
+[cursor]
+style = { shape = "Block", blinking = "On" }
+
+# Dracula color scheme
+[colors.primary]
+background = "#000000"
+foreground = "#f2f2f2"
+
+[colors.selection]
+text = "#000000"
+background = "#d1d1d1"
+
+[colors.cursor]
+text = "#282a36"
+cursor = "#f8f8f2"
+
+[colors.normal]
+black = "#000000"
+red = "#ff5555"
+green = "#50fa7b"
+yellow = "#f1fa8c"
+blue = "#1F51FF"
+magenta = "#ff79c6"
+cyan = "#8be9fd"
+white = "#f8f8f2"
+
+[colors.bright]
+black = "#6272a4"
+red = "#ff6e6e"
+green = "#69ff94"
+yellow = "#ffffa5"
+blue = "#d6acff"
+magenta = "#ff92df"
+cyan = "#a4ffff"
+white = "#ffffff"
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = true
+
+[keyboard]
+# Add custom key bindings here if needed
