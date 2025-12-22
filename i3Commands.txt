@@ -1,0 +1,62 @@
+==================== Common Applications ===============
+	#------ Notepad
+		$ kwrite
+
+	#------ VS Code
+		$ code
+	
+	#------ Libre Writer
+		$ libreoffice --writer
+
+	#------ Libre Calc
+		$ libreoffice --calc
+
+	#------ Dolphin File Manager
+		dolphin
+
+	#------ Remmina -> RDP
+		$ remmina
+==================== Arch ==============================
+	# If something breaks after update try:
+	$ pacman -S linux-firmare 
+
+==================== Edit a Network Connection =========
+$ nmtui
+
+==================== List available WiFi Networks=======
+$ nmcli device wifi list
+
+==================== Connect to a WiFi Network==========
+$ nmcli device wifi connect "network-name" password "network-password"
+
+==================== Reload i3 Configuration============
+ Cmd + Shfit + r
+  ##--- Restart i3 ---
+	Cmd + Shift + e
+
+==================== Save Current Workspace layout======
+$ i3-save-tree --workspace 1 > ~/.config/i3/<workspace_name>.json
+
+--> Edit .json file, remove '//' comments
+--> Make sure that the windows will open on start:
+
+nano ~/.config/i3/config
+exec --no-startup-id <application_name>
+
+==================== Window Management ================
+Cmd + Enter		-> Open Terminal (Alacritty)
+Cmd + Shift +q		-> Kill Focused window
+Cmd + f			-> Toggle Fullscreen Mode
+Cmd + Shift + Space	-> Toggle Window Float
+
+Cmd + h/j/k/l		-> Move Focus between windows
+Cmd + e			-> Toggle split orientation
+Cmd + w			-> Tabbed Layout
+Cmd + s			-> Stacked Layout
+
+Cmd + Shift + h/j/k/l	-> Move windows with h/j/k/l or arrow keys
+Cmr + r			-> Resize windows with h/j/k/l or arrow keys
+
+
+==================== Cat all files in a directory=======
+$ find <file-path> -type f -print0 | while IFS= read -r -d $'\0' file; do     echo "--- START OF FILE: $file ---" >> <output-filename>;     cat "$file" >> single.txt;     echo "" >> single.txt
