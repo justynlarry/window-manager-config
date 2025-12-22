@@ -2,7 +2,7 @@
 # Modern TOML format
 
 [window]
-opacity = 0.1
+opacity = 0.15
 padding = { x = 6, y = 6 }
 decorations = "transparent"
 dynamic_padding = false

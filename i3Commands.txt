@@ -16,6 +16,12 @@
 
 	#------ Remmina -> RDP
 		$ remmina
+
+==================== Lights! ===========================
+$ brightnessctl set +10%
+
+$ kdblight up / down
+
 ==================== Arch ==============================
 	# If something breaks after update try:
 	$ pacman -S linux-firmare 

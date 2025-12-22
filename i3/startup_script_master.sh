@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Run Startup script for Workspace 2
-#/home/larryman/.config/i3/load-ws2.sh
+/home/larryman/.config/i3/load-ws2.sh
 # Wait for Workspace 2 to load
-#sleep 4
+sleep 4
 
 # Run Startup script for Workspace 1
 /home/larryman/.config/i3/load-ws1.sh
