@@ -135,6 +135,11 @@ bindsym $mod+r mode "resize"
 bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
 bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 
+# Keyboard backlight:
+bindsym XF86KbdBrightnessUp exec --no-startup-id kbdlight up
+bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down
+
+
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
