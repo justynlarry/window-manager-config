@@ -20,7 +20,7 @@ transparent_background_colors = false
 [cursor]
 style = { shape = "Block", blinking = "On" }
 
-# Dracula color scheme
+# Color scheme
 [colors.primary]
 background = "#000000"
 foreground = "#f2f2f2"
@@ -38,7 +38,7 @@ black = "#000000"
 red = "#ff5555"
 green = "#50fa7b"
 yellow = "#f1fa8c"
-blue = "#1F51FF"
+blue = "#2726fa"
 magenta = "#ff79c6"
 cyan = "#8be9fd"
 white = "#f8f8f2"
@@ -48,7 +48,7 @@ black = "#6272a4"
 red = "#ff6e6e"
 green = "#69ff94"
 yellow = "#ffffa5"
-blue = "#d6acff"
+blue = "#04D9FF"
 magenta = "#ff92df"
 cyan = "#a4ffff"
 white = "#ffffff"
