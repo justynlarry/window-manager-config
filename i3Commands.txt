@@ -35,6 +35,14 @@ $ nmcli device wifi list
 ==================== Connect to a WiFi Network==========
 $ nmcli device wifi connect "network-name" password "network-password"
 
+==================== Timeshift =========================
+-> Manual Snapshot
+$ sudo timeshift --create --comments "<comment>"
+
+-> Restore
+$ sudo timeshift --restore
+
+
 ==================== Reload i3 Configuration============
  Cmd + Shfit + r
   ##--- Restart i3 ---
