@@ -42,7 +42,10 @@ $ sudo timeshift --create --comments "<comment>"
 -> Restore
 $ sudo timeshift --restore
 
-
+- > Systemd Service(s)
+restic-laptop-backup.timer -> runs 5 min. after startup
+	-> relies on
+		restic-laptop-backup.service
 ==================== Reload i3 Configuration============
  Cmd + Shfit + r
   ##--- Restart i3 ---
