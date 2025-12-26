@@ -139,6 +139,8 @@ bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
 bindsym XF86KbdBrightnessUp exec --no-startup-id kbdlight up
 bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down
 
+# LightDM Manager
+bindsym $mod+Shift+m exec "sudo lightdm-gtk-greeter-settings-pkexec &"
 
 # Volume controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
