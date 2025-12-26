@@ -12,7 +12,7 @@ blur = false
 normal = { family = "DejaVu Sans Mono", style = "Regular" }
 bold = { family = "DejaVu Sans Mono", style = "Bold" }
 italic = { family = "DejaVu Sans Mono", style = "Italic" }
-size = 5
+size = 6
 
 [colors]
 transparent_background_colors = false
@@ -22,7 +22,7 @@ style = { shape = "Block", blinking = "On" }
 
 # Color scheme
 [colors.primary]
-background = "#000000"
+background = "#1e0001"
 foreground = "#f2f2f2"
 
 [colors.selection]
@@ -35,7 +35,7 @@ cursor = "#f8f8f2"
 
 [colors.normal]
 black = "#000000"
-red = "#ff5555"
+red = "#780606"
 green = "#50fa7b"
 yellow = "#f1fa8c"
 blue = "#2726fa"

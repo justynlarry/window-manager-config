@@ -12,6 +12,6 @@ i3-msg '[class="Alacritty" title="Left-Main-Term"] floating enable, resize set 1
 i3-msg '[class="Alacritty" title="Top-Right-Term"] floating enable, resize set 1080 540, move position 1450 100'
 
 # Terminal Bottom-right Bottom
-i3-msg '[class="Alacritty" title="Bottom-Right-Term"] floating enable, resize set 1280 740, move position 1280 760'
+i3-msg '[class="Alacritty" title="Bottom-Right-Term"] floating enable, resize set 1220 740, move position 1310 760'
 
 clear
