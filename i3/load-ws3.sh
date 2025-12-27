@@ -1,11 +1,16 @@
 #!/bin/bash
 i3-msg 'workspace 3'
 
-#Launch Remmina
-remmina &
+# Launch Terminals
+alacritty --title "WS3-Term" &
 
-# Wait for it to load
-sleep 2
+sleep 4
 
-# Resize the window to full screen
-i3-msg ['class="org.remmina.Remmina"] floating enable, resize set 2400 1500, move pos 80 50'
+# Cheat Sheet
+	# resize Width x Height
+	# position x y
+
+#Main WorkStation 3 Terminal, Left side of screen
+i3-msg '[class="Alacritty" title="WS3-Term"] floating enable, resize set 700 700, move position 0 50'
+
+clear
