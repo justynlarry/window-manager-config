@@ -48,7 +48,7 @@ restic-laptop-backup.timer -> runs 5 min. after startup
 		restic-laptop-backup.service
 
 ==================== Light DM Splash Editor =============
-$  sudo lightdm-gtk-greeter-settings-pkexec &
+$  sudo lightdm-gtk-greeter-settings-pkexec
 
 
 ==================== Reload i3 Configuration ============
