@@ -50,6 +50,9 @@ restic-laptop-backup.timer -> runs 5 min. after startup
 ==================== Light DM Splash Editor =============
 $  sudo lightdm-gtk-greeter-settings-pkexec
 
+ - or -
+i3lockscreen-editor.sh
+
 
 ==================== Reload i3 Configuration ============
  Cmd + Shfit + r

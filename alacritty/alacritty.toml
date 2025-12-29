@@ -22,7 +22,7 @@ style = { shape = "Block", blinking = "On" }
 
 # Color scheme
 [colors.primary]
-background = "#1e0001"
+background = "#000046"
 foreground = "#f2f2f2"
 
 [colors.selection]
@@ -38,7 +38,7 @@ black = "#000000"
 red = "#780606"
 green = "#50fa7b"
 yellow = "#f1fa8c"
-blue = "#2726fa"
+blue = "#1793D1"
 magenta = "#ff79c6"
 cyan = "#8be9fd"
 white = "#f8f8f2"

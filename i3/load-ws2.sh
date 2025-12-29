@@ -3,7 +3,9 @@ i3-msg 'workspace 2'
 
 # Launch Terminals
 alacritty --title "Left-Main-Term" &
-alacritty --title "Top-Right-Term" -e bash -c "screenfetch -c 88,7; exec bash" &
+alacritty --title "Top-Right-Term" -e bash -c "screenfetch; exec bash" &
+# Blood-Red Arch Logo
+#alacritty --title "Top-Right-Term" -e bash -c "screenfetch -c 88,7; exec bash" &
 alacritty --title "Bottom-Right-Term" -e bash -c "btop; exec bash" &
 
 sleep 4
