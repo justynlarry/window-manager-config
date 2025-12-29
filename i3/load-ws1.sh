@@ -7,7 +7,7 @@ alacritty --title "Terminal-Main" &
 alacritty --title "Terminal-Side" -e bash -c "btop; exec bash" &
 
 # Allow time for applicatations to start
-sleep 8
+sleep 4
 
 # Left large terminal (Terminal-Main) - takes up full left half
 i3-msg '[class="Alacritty" title="Terminal-Main"] floating enable, resize set 1270 1550, move position 0 50'

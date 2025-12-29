@@ -10,4 +10,4 @@ i3-msg '[instance="Navigator" class="firefox"] floating enable, resize set 1280 
 # Bottom right: smaller terminal (Terminal-Side) - lower portion of right half
 i3-msg '[class="Alacritty" title="Terminal-Side"] floating enable, resize set 1280 590, move position 1280 1010'
 
-#clear
+clear
