@@ -18,7 +18,7 @@ sudo pacman -Syu
 
 echo ""
 echo "Installing X Server and display essentials..."
-sudo pacman -S --noconfirm \
+sudo pacman -S --needed --noconfirm \
     xorg \
     xinit \
     xbacklight \
@@ -27,10 +27,14 @@ sudo pacman -S --noconfirm \
 
 echo ""
 echo "Installing i3 Window Manager and related tools..."
-sudo pacman -S --noconfirm \
+sudo pacman -S --needed --noconfirm \
     i3 \
     i3status \
     i3lock \
+    i3blocks \
+    lxappearance \
+    arandr \
+    xsettingsd \
     dmenu \
     rofi \
     dunst \
@@ -39,19 +43,19 @@ sudo pacman -S --noconfirm \
 
 echo ""
 echo "Installing Alacritty terminal..."
-    sudo pacman -S --noconfirm alacritty
+    sudo pacman -S --needed --noconfirm alacritty
 
 echo ""
 echo "Installing Polybar..."
-    sudo pacman -S --noconfirm polybar
+    sudo pacman -S --needed --noconfirm polybar
 
 echo ""
 echo "Installing Picom Compositor..."
-sudo pacman -S --noconfirm picom
+sudo pacman -S --needed --noconfirm picom
 
 echo ""
 echo "Installing essential command line tools..."
-sudo pacman -S --noconfirm \
+sudo pacman -S --needed --noconfirm \
     curl \
     wget \
     git \
@@ -73,26 +77,30 @@ sudo pacman -S --noconfirm \
     net-tools \
     dnsutils \
     traceroute \
-    nmap \
+    nmap
 
 echo ""
 echo "Installing system utilities..."
-sudo pacman -S --noconfirm \
+sudo pacman -S --needed --noconfirm \
     pavucontrol \
-    pulseaudio \
-    alsa-utils \
+    pipewire \
+    pipewire-alsa \
+    pipewire-pulse \
+    pipewire-jack \
+    wireplumber \
     brightnessctl \
-    network-manager \
+    networkmanager \
     network-manager-gnome \
     bluez \
     blueman \
     gparted \
     gnome-disk-utility \
-    gnome-themes-extra
+    gnome-themes-extra \
+    cronie
 
 echo ""
 echo "Installing fonts..."
-sudo pacman -S --noconfirm \
+sudo pacman -S --needed --noconfirm \
     tty-font-awesome \
     powerline-fonts \
     noto-fonts \
@@ -104,14 +112,14 @@ sudo pacman -S --noconfirm \
 
 echo ""
 echo "Installing LightDM Display Manager..."
-sudo pacman -S --noconfirm \
+sudo pacman -S --needed --noconfirm \
     lightdm \
     lightdm-gtk-greeter \
     lightdm-gtk-greeter-settings
 
 echo ""
 echo "Installing userful GUI Applications..."
-sudo pacman -S --noconfirm \
+sudo pacman -S --needed --noconfirm \
     firefox \
     thunar \
     gvfs \
@@ -138,23 +146,37 @@ sudo pacman -S --noconfirm \
     cryptsetup \
     tlp \
     tlp-rdw \
-    xclip \
-    wl-clipboard \
-
+    xclip
 
 echo ""
 echo "Install Libre Office Suite..."
-sudo pacman -S --noconfirm libreoffice
+sudo pacman -S --needed --noconfirm libreoffice
 
 echo ""
 echo "Installing development tools..."
-sudo pacman -S --noconfirm \
+sudo pacman -S --needed --noconfirm \
     gcc \
     make \
     python \
     python-pip \
     nodejs \
     npm
+
+echo ""
+echo "Installing Power/Hardware Utilities..."
+sudo pacman -S --needed --noconfirm \
+    acpid \
+    thermald \
+    powertop \
+    fwupd
+
+echo ""
+echo "Installing networking diagnostic tools..."
+sudo pacman -S --needed --noconfirm \
+    inetutils \
+    bind \
+    tcpdump \
+    ethtool
 
 echo ""
 echo "Creating default i3 config directory if it doesn't exist..."
@@ -164,6 +186,17 @@ mkdir -p ~/.config/picom
 mkdir -p ~/.config/alacritty
 mkdir -p ~/.config/dunst
 
+echo ""
+echo "Enabling System Services..."
+sudo systemctl enable NetworkManager
+sudo systemctl enable bluetooth
+sudo systemctl enable lightdm
+sudo systemctl enable tlp
 
 
-
+echo ""
+echo "Restoring dotfiles..."
+git clone https://github.com/justynlarry/window-manager-config.git ~/wm-config
+rsync -av --progress ~/wm-config/ ~/.config/
+# Clean up cloned repository
+rm -rf ~/wm-config
