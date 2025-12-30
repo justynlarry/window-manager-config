@@ -2,8 +2,12 @@
 
 set -e
 
+# Safeguard
 read -rp "This will install and configure a full Arch+i3 environment.  Continue? [y/N] "confirm [[ "$confirm" =~ ^[Yy]$ ]] || exit 1
 
+# Log
+LOG="$HOME/arch-recovery.log"
+exec > >(tee -a "$LOG") 2>&1
 
 
 echo "========================="
