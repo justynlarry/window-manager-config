@@ -2,6 +2,10 @@
 
 set -e
 
+read -rp "This will install and configure a full Arch+i3 environment.  Continue? [y/N] "confirm [[ "$confirm" =~ ^[Yy]$ ]] || exit 1
+
+
+
 echo "========================="
 echo "=== Arch/i3 Recovery ===="
 echo "========================="
@@ -188,10 +192,14 @@ mkdir -p ~/.config/dunst
 
 echo ""
 echo "Enabling System Services..."
-sudo systemctl enable NetworkManager
-sudo systemctl enable bluetooth
-sudo systemctl enable lightdm
-sudo systemctl enable tlp
+sudo systemctl enable --now NetworkManager
+sudo systemctl enable --now bluetooth
+sudo systemctl enable --now lightdm
+sudo systemctl enable --now tlp
+
+echo ""
+echo "Enabling user audio service..."
+sudo systemctl --user enable pipewire pipewire-pulse wireplumber
 
 
 echo ""
