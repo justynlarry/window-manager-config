@@ -11,6 +11,6 @@ sleep 4
 	# position x y
 
 #Main WorkStation 3 Terminal, Left side of screen
-i3-msg '[class="Alacritty" title="WS3-Term"] floating enable, resize set 700 700, move position 0 50'
+i3-msg '[class="Alacritty" title="WS3-Term"] floating enable, resize set 1280 900, move position 0 50'
 
 clear
