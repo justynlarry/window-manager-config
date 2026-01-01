@@ -17,9 +17,6 @@ bindsym $mod+Shift+q kill
 # Rofi launcher (better than dmenu)
 bindsym $mod+d exec wofi -show drun
 
-# dmenu fallback
-bindsym $mod+Shift+d exec dmenu_run
-
 # Change focus (vim keys)
 bindsym $mod+h focus left
 bindsym $mod+j focus down
@@ -108,7 +105,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # Exit i3
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec swaymsg exit
 
 # Resize mode
 mode "resize" {
@@ -132,21 +129,21 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # MacBook-specific: Brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl set +5%
-bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
 
 # Keyboard backlight:
-bindsym XF86KbdBrightnessUp exec --no-startup-id kbdlight up
-bindsym XF86KbdBrightnessDown exec --no-startup-id kbdlight down
+bindsym XF86KbdBrightnessUp exec kbdlight up
+bindsym XF86KbdBrightnessDown exec kbdlight down
 
 # LightDM Manager
 bindsym $mod+Shift+m exec "sudo lightdm-gtk-greeter-settings-pkexec"
 
 # Volume controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
-bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
+bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screenshot (requires scrot)
 bindsym $mod+p exec grim ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
@@ -156,43 +153,19 @@ bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot_%
 bindsym $mod+Shift+x exec swaylock -f
 
 # Startup applications
-# /home/larryman/Pictures/desert-doom-sand-dunes-dark-background-monochrome-landscape-3840x2160-6409.jpg
-# exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec swaybg -i /home/larryman/Pictures/desert-doom-sand-dunes-dark-background-monochrome-landscape-3840x2160-6409.jpg
 exec waybar
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet --indicator
 exec swayidle -w \
     timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'swaymsg "output + dpms off"' \
-    resume 'swaymsg "output + dpms on"' \
+    timeout 600 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock -f -c 000000' 
 
 
 # Startup Scrips for Screen/Workstation Setup
-exec --no-startup-id /home/larryman/.config/i3/startup_script_master.sh
-
-# i3bar configuration
-#bar {
-#    status_command i3status
-#    position top
-#    
-#    colors {
-#        background #282a36
-#        statusline #f8f8f2
-#        separator  #44475a
-#        
-#        focused_workspace  #44475a #44475a #f8f8f2
-#        active_workspace   #282a36 #44475a #f8f8f2
-#        inactive_workspace #282a36 #282a36 #bfbfbf
-#        urgent_workspace   #ff5555 #ff5555 #f8f8f2
-#    }
-#}
-
-# Window colors (Personal  Theme)
-#			border  bckgrnd text    indctr    child-border
-#client.focused          #aaaaaa #48494a #FFFFFF #48494a   #780606
-#client.focused_inactive #2C2C2C #2C2C2C #888888 #2C2C2C   #504F4F
-#client.unfocused        #1C1C1C #1C1C1C #888888 #2C2C2C   #2C2C2C
-#client.urgent           #ff5555 #ff5555 #f8f8f2 #ff5555   #ff5555
+exec /home/larryman/.config/sway/startup_script_master.sh
 
 # Window Colors - Linked to Color Profiles
 include /home/larryman/.config/i3/colors.conf
