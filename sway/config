@@ -15,7 +15,7 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+Shift+q kill
 
 # Rofi launcher (better than dmenu)
-bindsym $mod+d exec rofi -show drun
+bindsym $mod+d exec wofi -show drun
 
 # dmenu fallback
 bindsym $mod+Shift+d exec dmenu_run
@@ -149,21 +149,23 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ to
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screenshot (requires scrot)
-bindsym $mod+p exec --no-startup-id scrot ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
-bindsym $mod+Shift+p exec --no-startup-id scrot -s ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
+bindsym $mod+p exec grim ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
+bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
 
 # Lock screen
-bindsym $mod+Shift+x exec i3lock -i /home/larryman/Pictures/glowing-arch-logo-resized.png
-
-# Lock screen on suspend/hibernate (e.g., when closing the lid)
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+bindsym $mod+Shift+x exec swaylock -f
 
 # Startup applications
-exec --no-startup-id picom --backend xrender --vsync
-exec --no-startup-id feh --bg-fill /home/larryman/Pictures/desert-doom-sand-dunes-dark-background-monochrome-landscape-3840x2160-6409.jpg
-exec --no-startup-id nm-applet
-exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
-exec_always --no-startup-id ~/.config/polybar/launch.sh
+# /home/larryman/Pictures/desert-doom-sand-dunes-dark-background-monochrome-landscape-3840x2160-6409.jpg
+# exec --no-startup-id /usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1
+exec waybar
+exec nm-applet --indicator
+exec swayidle -w \
+    timeout 300 'swaylock -f -c 000000' \
+    timeout 600 'swaymsg "output + dpms off"' \
+    resume 'swaymsg "output + dpms on"' \
+    before-sleep 'swaylock -f -c 000000' 
+
 
 # Startup Scrips for Screen/Workstation Setup
 exec --no-startup-id /home/larryman/.config/i3/startup_script_master.sh
