@@ -1,5 +1,5 @@
 #!/bin/bash
-i3-msg 'workspace 2'
+swaymsg 'workspace 2'
 
 # Launch Terminals
 alacritty --title "Left-Main-Term" &
@@ -8,19 +8,23 @@ alacritty --title "Top-Right-Term" -e bash -c "screenfetch -c 39,7; exec bash" &
 #alacritty --title "Top-Right-Term" -e bash -c "screenfetch -c 88,7; exec bash" &
 alacritty --title "Bottom-Right-Term" -e bash -c "btop; exec bash" &
 
-sleep 4
-
-# Cheat Sheet
-	# resize Width x Height
-	# position x y
+while ! swaymsg -t get_tree | grep -q "Left-Main-Term"; do
+  sleep 0.2
+done
 
 #Main Terminal, Left half of screen
-i3-msg '[class="Alacritty" title="Left-Main-Term"] floating enable, resize set 1270 1550, move position 0 50'
+swaymsg '[title="Left-Main-Term"] floating enable'
+swaymsg '[title="Left-Main-Term"] resize set width 1270 height 1550'
+swaymsg '[title="Left-Main-Term"] move position 0 10'
 
 # Terminal - Top right corner
-i3-msg '[class="Alacritty" title="Top-Right-Term"] floating enable, resize set 1080 540, move position 1450 100'
+swaymsg '[title="Top-Right-Term"] floating enable'
+swaymsg '[title="Top-Right-Term"] resize set width 1080 height 540'
+swaymsg '[title="Top-Right-Term"] move position 1450 100'
 
 # Terminal Bottom-right Bottom
-i3-msg '[class="Alacritty" title="Bottom-Right-Term"] floating enable, resize set 1220 760, move position 1310 760'
+swaymsg '[title="Bottom-Right-Term"] floating enable'
+swaymsg '[title="Bottom-Right-Term"] resize set width 1240 height 760'
+swaymsg '[title="Bottom-Right-Term"] move position 1300 760'
 
 clear
