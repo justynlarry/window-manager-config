@@ -19,8 +19,8 @@ swaymsg '[title="Left-Main-Term"] move position 0 10'
 
 # Terminal - Top right corner
 swaymsg '[title="Top-Right-Term"] floating enable'
-swaymsg '[title="Top-Right-Term"] resize set width 1080 height 540'
-swaymsg '[title="Top-Right-Term"] move position 1450 100'
+swaymsg '[title="Top-Right-Term"] resize set width 830 height 540'
+swaymsg '[title="Top-Right-Term"] move position 1330 150'
 
 # Terminal Bottom-right Bottom
 swaymsg '[title="Bottom-Right-Term"] floating enable'
