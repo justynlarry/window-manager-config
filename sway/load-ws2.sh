@@ -6,7 +6,7 @@ alacritty --title "Left-Main-Term" &
 alacritty --title "Top-Right-Term" -e bash -c "screenfetch -c 39,7; exec bash" &
 # Blood-Red Arch Logo
 #alacritty --title "Top-Right-Term" -e bash -c "screenfetch -c 88,7; exec bash" &
-alacritty --title "Bottom-Right-Term" -e bash -c "btop; exec bash" &
+alacritty --title "Bottom-Right-Term" -e bash -c "unimatrix -s 94 -c blue -l k; exec bash" &
 
 while ! swaymsg -t get_tree | grep -q "Left-Main-Term"; do
   sleep 0.2
