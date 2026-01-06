@@ -145,8 +145,8 @@ bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Screenshot (requires scrot)
-bindsym $mod+p exec grim ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
-bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot_%Y%m%d_%H%M%S.png
+bindsym $mod+p exec grim ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png
+bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png
 
 # Lock screen
 bindsym $mod+Shift+x exec swaylock -f -i /home/larryman/Pictures/glowing-arch-logo-blue-on-black.jpeg

@@ -3,13 +3,13 @@ swaymsg 'workspace 2'
 
 #Main Terminal, Left half of screen
 swaymsg '[title="Left-Main-Term"] floating enable'
-swaymsg '[title="Left-Main-Term"] resize set width 1270 height 1550'
+swaymsg '[title="Left-Main-Term"] resize set width 1270 height 1540'
 swaymsg '[title="Left-Main-Term"] move position 0 10'
 
 # Terminal - Top right corner
 swaymsg '[title="Top-Right-Term"] floating enable'
 swaymsg '[title="Top-Right-Term"] resize set width 830 height 540'
-swaymsg '[title="Top-Right-Term"] move position 1330 150'
+swaymsg '[title="Top-Right-Term"] move position 1310 50'
 
 # Terminal Bottom-right Bottom
 swaymsg '[title="Bottom-Right-Term"] floating enable'
