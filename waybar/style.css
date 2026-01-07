@@ -75,7 +75,7 @@ window#waybar {
 }
 
 #network {
-    color: #1793D1;
+    color: #FFFFFF;
 }
 
 #network.disconnected {
@@ -99,7 +99,7 @@ window#waybar {
 }
 
 #cpu {
-    color: #FF2400;
+    color: #1793D1;
 }
 
 #memory {
@@ -108,4 +108,18 @@ window#waybar {
 
 #temperature {
     color: #FFFFFF;
+}
+
+#temperature.warm {
+    color: #f9a825;
+}
+
+#temperature.hot {
+    color: #ff6b35;
+}
+
+#temperature.critical {
+    color: #e74c3c;
+    font-weight: bold;
+    animation: blink 0.5s linear infinite alternate;
 }

@@ -43,7 +43,7 @@
     },
 
     "pulseaudio": {
-        "format": "{icon} {volume}%",
+        "format": "Vol: {icon} {volume}%",
         "format-muted": " Muted",
         "format-icons": {
             "default": ["", "", ""]
@@ -52,7 +52,7 @@
     },
 
     "backlight": {
-        "format": "{icon} {percent}%",
+        "format": "Bright: {icon} {percent}%",
         "format-icons": ["", ""]
     },
 
@@ -65,8 +65,14 @@
         "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "ciritical-threshold": 80,
         "format": "Temp: {icon} {temperatureC}°C",
+        "format-critical": " {temperatureC}°C",
         "format-icons": ["", "", ""],
-        "tooltip": true
+        "states": {
+            "good": 40,
+            "warm": 60,
+            "hot": 70,
+            "critical": 80
+        }
     },
 
     "cpu": {
