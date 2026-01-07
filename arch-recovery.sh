@@ -3,7 +3,7 @@
 set -e
 
 # Safeguard
-read -rp "This will install and configure a full Arch+i3 environment.  Continue? [y/N] "confirm [[ "$confirm" =~ ^[Yy]$ ]] || exit 1
+read -rp "This will install and configure a full Arch+i3 environment.  Continue? [y/N] " confirm [[ "$confirm" =~ ^[Yy]$ ]] || exit 1
 
 # Log
 LOG="$HOME/arch-recovery.log"
@@ -15,7 +15,7 @@ echo "=== Arch-i3/Sway Recovery ===="
 echo "=============================="
 echo ""
 
-# Check if running as room
+# Check if running as root
 if [ "$EUID" -eq 0 ]; then
     echo "Please don't run this script as root (no sudo)."
     exit 1
@@ -108,19 +108,19 @@ sudo pacman -S --needed --noconfirm \
     linux-lts \
     linux-headers \
     intel-ucode \
-    libva-intel-driver 
+    libva-intel-driver \
+    plocate
 
 echo ""
 echo "Installing fonts..."
 sudo pacman -S --needed --noconfirm \
-    tty-font-awesome \
+    ttf-font-awesome \
     powerline-fonts \
     noto-fonts \
     noto-fonts-emoji \
     ttf-dejavu \
     ttf-jetbrains-mono \
-    papirus-icon-theme \
-    plocate
+    papirus-icon-theme
 
 echo ""
 echo "Installing LightDM Display Manager..."
@@ -184,7 +184,7 @@ sudo pacman -S --needed --noconfirm \
     fwupd \
     s-tui \
     7zip \
-    unrar\
+    unrar \
     cifs-utils \
     smbclient 
 
@@ -209,9 +209,7 @@ sudo pacman -S --needed --noconfirm \
     grim \
     slurp \
     wl-clipboard \
-    conky \
-    pipewire
-
+    conky 
 
 echo ""
 echo "Creating default i3 config directory if it doesn't exist..."
@@ -254,21 +252,19 @@ yay -S --noconfirm \
     pommed-light \
     pommed-light-debug \
     ttf-code2000 \
-    unimatrix-git \
-    yay-debug
+    unimatrix-git
 
 echo ""
 echo "Configure MbpFan...."
-echo  \
-   " [general] \
-    min_fan_speed = 2500 \
-    max_fan_speed = 6200 \
-    low_temp = 40 \
-    high_temp = 50 \
-    max_temp = 65 \
-    polling_interval = 1 \
-    > /etc/mbpfan.conf "
-
+sudo tee /etc/mbpfan.conf > /dev/null << 'EOF'
+[general]
+min_fan_speed = 2500
+max_fan_speed = 6200
+low_temp = 40
+high_temp = 50
+max_temp = 65
+polling_interval = 1
+EOF
 
 
 echo ""
@@ -281,7 +277,7 @@ sudo systemctl enable --now tlp
 
 echo ""
 echo "Enabling user audio service..."
-sudo systemctl --user enable pipewire pipewire-pulse wireplumber
+systemctl --user enable pipewire pipewire-pulse wireplumber
 
 
 echo ""
@@ -290,24 +286,3 @@ git clone https://github.com/justynlarry/window-manager-config.git ~/wm-config
 rsync -av --progress ~/wm-config/ ~/.config/
 # Clean up cloned repository
 rm -rf ~/wm-config
-larryman | ghost:~$
-sudo systemctl enable --now NetworkManager
-sudo systemctl enable --now bluetooth
-sudo systemctl enable --now lightdm
-sudo systemctl enable --now tlp
-
-
-echo ""
-echo "Enabling user audio service..."
-sudo systemctl --user enable pipewire pipewire-pulse wireplumber
-
-
-echo ""
-echo "Restoring dotfiles..."
-git clone https://github.com/justynlarry/window-manager-config.git ~/wm-config
-rsync -av --progress ~/wm-config/ ~/.config/
-# Clean up cloned repository
-rm -rf ~/wm-config
-
-
-
