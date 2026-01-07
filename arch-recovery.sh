@@ -10,9 +10,9 @@ LOG="$HOME/arch-recovery.log"
 exec > >(tee -a "$LOG") 2>&1
 
 
-echo "========================="
-echo "=== Arch/i3 Recovery ===="
-echo "========================="
+echo "=============================="
+echo "=== Arch-i3/Sway Recovery ===="
+echo "=============================="
 echo ""
 
 # Check if running as room
