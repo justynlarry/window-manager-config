@@ -2,7 +2,7 @@
     border: none;
     border-radius: 0;
     font-family: "DejaVu Sans Mono", monospace;
-    font-size: 13px;
+    font-size: 14px;
     min-height: 0;
 }
 
@@ -22,12 +22,12 @@ window#waybar {
 
 #workspaces button:hover {
     background: rgba(255, 255, 255, 0.1);
-    color: #e0e0e0;
+    color: #FFFFFF;
 }
 
 #workspaces button.focused {
     background-color: #2a2a2a;
-    color: #ffffff;
+    color: #FFFFFF;
     border-bottom: 2px solid #5294e2;
 }
 
@@ -51,19 +51,19 @@ window#waybar {
 }
 
 #battery {
-    color: #00ff00;
+    color: #ffffff;
 }
 
 #battery.charging {
-    color: #355e3b;
-}
-
-#battery.warning:not(.charging) {
     color: #00ff00;
 }
 
+#battery.warning:not(.charging) {
+    color: #bb0a1e;
+}
+
 #battery.critical:not(.charging) {
-    color: #880808;
+    color: #e30505;
     animation: blink 0.5s linear infinite alternate;
 }
 
@@ -75,7 +75,7 @@ window#waybar {
 }
 
 #network {
-    color: #5294e2;
+    color: #1793D1;
 }
 
 #network.disconnected {
@@ -83,7 +83,7 @@ window#waybar {
 }
 
 #pulseaudio {
-    color: #f39c12;
+    color: #1793D1;
 }
 
 #pulseaudio.muted {

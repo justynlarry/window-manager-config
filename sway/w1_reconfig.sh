@@ -9,7 +9,7 @@ swaymsg '[title="Terminal-Main"] move position 0 10'
 
 # Top right: Firefox browser - upper portion of right half
 swaymsg '[app_id="firefox"] floating enable'
-swaymsg '[app_id="firefox"] resize set width 1280 height 940'
+swaymsg '[app_id="firefox"] resize set width 1260 height 950'
 swaymsg '[app_id="firefox"] move position 1280 10'
 
 

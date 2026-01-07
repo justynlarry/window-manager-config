@@ -2,7 +2,7 @@
 # Modern TOML format
 
 [window]
-opacity = 0.06
+opacity = 0.3
 padding = { x = 6, y = 6 }
 decorations = "transparent"
 dynamic_padding = false
@@ -22,7 +22,7 @@ style = { shape = "Block", blinking = "On" }
 
 # Color scheme
 [colors.primary]
-background = "#1793D1"
+background = "#000000"
 foreground = "#f2f2f2"
 
 [colors.selection]
@@ -35,9 +35,9 @@ cursor = "#f8f8f2"
 
 [colors.normal]
 black = "#000000"
-red = "#780606"
+red = "#FF0800"
 green = "#1DBC60"
-yellow = "#f1fa8c"
+yellow = "#FFF200"
 blue = "#1793D1"
 magenta = "#ff79c6"
 cyan = "#8be9fd"

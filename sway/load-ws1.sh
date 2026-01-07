@@ -9,12 +9,12 @@ alacritty --title "Terminal-Side" -e bash -c "btop; exec bash" &
 
 # Allow time for applicatations to start
 while ! swaymsg -t get_tree | grep -q "Terminal-Main"; do
-  sleep 0.2
+  sleep 0.1
 done
 
 # Allow extra time for firefox to load
 while ! swaymsg -t get_tree | grep -p "firefox";do
-  sleep 0.2
+  sleep 0.4
 done
 
 # A little extra time for Firefox
@@ -27,7 +27,7 @@ swaymsg '[title="Terminal-Main"] move position 0 10'
 
 # Top right: Firefox browser - upper portion of right half
 swaymsg '[app_id="firefox"] floating enable'
-swaymsg '[app_id="firefox"] resize set width 1280 height 940'
+swaymsg '[app_id="firefox"] resize set width 1260 height 950'
 swaymsg '[app_id="firefox"] move position 1280 10'
 
 
