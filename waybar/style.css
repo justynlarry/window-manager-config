@@ -1,8 +1,8 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: "DejaVu Sans Mono", monospace;
-    font-size: 14px;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
     min-height: 0;
 }
 
@@ -122,4 +122,10 @@ window#waybar {
     color: #e74c3c;
     font-weight: bold;
     animation: blink 0.5s linear infinite alternate;
+}
+
+#clock {
+    color: #1793D1;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
 }
