@@ -129,3 +129,13 @@ window#waybar {
     font-family: "Roboto Mono", monospace;
     font-size: 15px;
 }
+
+#custom-weather {
+    color: #1793D1;
+    font-family: "Roboto Mono", monospace;
+    font-size: 15px;
+}
+
+#custom-updates {
+    color: #FFFFFF;
+}
