@@ -11,20 +11,19 @@ alacritty --title "Bottom-Right-Term" -e bash -c "unimatrix -s 94 -c blue -l k; 
 while ! swaymsg -t get_tree | grep -q "Left-Main-Term"; do
   sleep 0.2
 done
-
 #Main Terminal, Left half of screen
 swaymsg '[title="Left-Main-Term"] floating enable'
-swaymsg '[title="Left-Main-Term"] resize set width 1270 height 1540'
+swaymsg '[title="Left-Main-Term"] resize set width 1230 height 1540'
 swaymsg '[title="Left-Main-Term"] move position 0 10'
 
 # Terminal - Top right corner
 swaymsg '[title="Top-Right-Term"] floating enable'
-swaymsg '[title="Top-Right-Term"] resize set width 830 height 540'
-swaymsg '[title="Top-Right-Term"] move position 1310 50'
+swaymsg '[title="Top-Right-Term"] resize set width 910 height 540'
+swaymsg '[title="Top-Right-Term"] move position 1250 70'
 
 # Terminal Bottom-right Bottom
 swaymsg '[title="Bottom-Right-Term"] floating enable'
-swaymsg '[title="Bottom-Right-Term"] resize set width 1240 height 760'
-swaymsg '[title="Bottom-Right-Term"] move position 1300 760'
+swaymsg '[title="Bottom-Right-Term"] resize set width 1260 height 810'
+swaymsg '[title="Bottom-Right-Term"] move position 1270 710'
 
 clear
