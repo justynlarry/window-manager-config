@@ -1,0 +1,133 @@
+{
+	"history": {
+		"lastFocusedWindowDisplayState": {
+			"normalBounds": {
+				"x": 17,
+				"y": 57,
+				"width": 2066,
+				"height": 1536
+			},
+			"displayBounds": [
+				{
+					"x": 0,
+					"y": 0,
+					"width": 2560,
+					"height": 1600
+				}
+			],
+			"isFullScreen": false,
+			"isHtmlFullScreen": false,
+			"isMaximized": false
+		},
+		"appRestorationState": {
+			"windows": [
+				{
+					"windowId": "a105d111-017d-4776-a75a-7d03b9abfa37",
+					"focusOrder": 59,
+					"displayState": {
+						"normalBounds": {
+							"x": 17,
+							"y": 57,
+							"width": 2066,
+							"height": 1536
+						},
+						"displayBounds": [
+							{
+								"x": 0,
+								"y": 0,
+								"width": 2560,
+								"height": 1600
+							}
+						],
+						"isFullScreen": false,
+						"isHtmlFullScreen": false,
+						"isMaximized": false
+					},
+					"activeTabIdMap": {
+						"ungrouped": "cb300daf-2f12-4645-8ff2-1c05c79400e8"
+					},
+					"activeTabSectionId": "ungrouped",
+					"tabs": [
+						{
+							"tabId": "cb300daf-2f12-4645-8ff2-1c05c79400e8",
+							"url": "https://www.notion.so/Irin-Obsevability-2ea072b65260807fae2dea67749cfdd5",
+							"title": "🚀 Irin Obsevability:",
+							"index": 0,
+							"appStoreState": {
+								"currentUserId": "188d872b-594c-814b-969c-0002ca790591",
+								"currentUserEmail": "justynlarry@gmail.com",
+								"currentSpaceId": "c8c072b6-5260-8140-aacd-00035a7a1188",
+								"currentPageId": "2ea072b6-5260-807f-ae2d-ea67749cfdd5"
+							}
+						}
+					]
+				}
+			],
+			"tabSpaces": []
+		}
+	},
+	"appState": {
+		"zoomFactor": 1,
+		"theme": {
+			"mode": "dark",
+			"usingSystemTheme": false,
+			"colors": {
+				"white": "white",
+				"blue": "#2383E2"
+			},
+			"borderRadius": 4,
+			"textColor": "rgba(240, 239, 237, 1)",
+			"popoverBackgroundColor": "rgba(37, 37, 37, 1)",
+			"popoverBoxShadow": "0 0 0 1px rgba(56, 56, 54, 1), 0px 14px 28px -6px rgba(0, 0, 0, 0.20), 0px 2px 4px -1px rgba(0, 0, 0, 0.12)",
+			"inputBoxShadow": "rgba(255, 255, 255, 0.075) 0 0 0 1px",
+			"inputBackgroundColor": "rgba(255, 255, 255, 0.055)",
+			"dividerColor": "rgba(255, 255, 235, 0.1)",
+			"shadowOpacity": 0
+		},
+		"preferences": {
+			"isAutoUpdaterDisabled": false,
+			"isAutoUpdaterOSSupportBypass": false,
+			"isClosingBrowserTabs": false,
+			"isHardwareAccelerationDisabled": false,
+			"isHideLastWindowOnCloseEnabled": true,
+			"isMenuBarIconEnabled": true,
+			"isNavigationHistoryEnabled": true,
+			"isNewTabSearchEnabled": true,
+			"isOpenAtLoginEnabled": true,
+			"isPinnedTabNewTabEnabled": true,
+			"isTabSpacesEnabled": true,
+			"isQuickSearchEnabled": true,
+			"isTabPreviewEnabled": true,
+			"isTabUnloadingEnabled": true,
+			"isUniversalLinksEnabled": true,
+			"isUsingHttps": true,
+			"isVibrancyEnabled": null,
+			"notionAiShortcut": "shift+ctrl+j",
+			"onStartup": "continue",
+			"quickSearchShortcut": "Shift+CommandOrControl+K",
+			"updaterChannel": null,
+			"ignoreLogMessages": [
+				"Electron Security Warning",
+				"chrome-extension://"
+			],
+			"sqliteConnectionType": "message-ports",
+			"disabledExtensions": [
+				"React Developer Tools"
+			],
+			"isAlwaysOnTabBarEnabled": true,
+			"isZenModeEnabled": true,
+			"isPrewarmedTabThrottlingEnabled": true,
+			"shouldUsePrewarmedTabHeuristic": true,
+			"isPrewarmedTabHiddenBehindEnabled": false,
+			"tabUnloadThreshold": 36000000,
+			"shouldUnloadTabsBeforeRefresh": true,
+			"isStuckTabWatchdogEnabled": false
+		},
+		"notificationCount": 0,
+		"isTabBarContextMenuOpen": false,
+		"locale": "en-US",
+		"appLaunchTimestamp": 1769212939817,
+		"lastPrewarmedTabRequestTime": 1769212940552,
+		"prewarmedTabHeuristicEnabledTime": 1769213021605
+	}
+}

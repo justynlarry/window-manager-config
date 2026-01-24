@@ -1,16 +1,24 @@
 #!/bin/bash
+
 swaymsg 'workspace 3'
 
-# Launch Terminals
-alacritty --title "WS3-Term" &
+# Launch all applicatoins in the background (&)
+notion-app > /dev/null 2>&1 &
 
-while ! swaymsg -t get_tree | grep -q "WS3-Term"; do
-  sleep 0.2
+# Allow extra time for Notion to load
+COUNT=0
+while [$COUNT -LT 50]; DO
+    if swaymsg -t get_tree | grep -qi "notion"; then
+        break
+    fi
+    sleep 0.1
+    ((COUNT++))
 done
 
-#Main WorkStation 3 Terminal, Left side of screen
-swaymsg '[title="WS3-Term"] floating enable'
-swaymsg '[title="WS3-Term"] resize set width 1280 height 500'
-swaymsg '[title="WS3-Term"]  move position 0 50'
+# A little extra time for Notion
+sleep 0.5
+
+swaymsg '[class="Notion"] floating enable, resize set 1470 1540, move position 0 10'
+
 
 clear
