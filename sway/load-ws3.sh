@@ -1,9 +1,12 @@
 #!/bin/bash
 
+# --- Notion --- #
+
+
 swaymsg 'workspace 3'
 
 # Launch all applicatoins in the background (&)
-notion-app > /dev/null 2>&1 &
+notion-app > /dev/null 2>&1 & disown
 
 # Allow extra time for Notion to load
 COUNT=0

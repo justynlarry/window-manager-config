@@ -1,9 +1,13 @@
 #!/bin/bash
 
+## --- VS Code --- ##
+
+
 i3-msg 'workspace 4'
 
 # Launch VS Code  in Workspace 4
-code &
+code > /dev/null/ 2>&1 & disown
+
 #Wait for it to start:
 sleep 2
 
