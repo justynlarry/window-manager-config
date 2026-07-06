@@ -1,67 +1,70 @@
 # ─────────────────────────────────────
-#   Sway CONFIG — ghost
+#   Sway CONFIG for MacBook Pro A1502
 #   Arch Edition
 # ─────────────────────────────────────
 
 set $mod Mod4
 
-# ── Outputs ──────────────────────────
-# LG (left monitor) — workspace 1, terminals
-output HDMI-A-1 resolution 1920x1080 position 0,0
-# HP (right monitor) — workspace 2, firefox
-output HDMI-A-2 resolution 1920x1080 position 1920,0
-# Internal display — disabled
-output eDP-1 disable
+output eDP-1 resolution 3560x1600 scale 1
 
-workspace 1 output HDMI-A-1
-workspace 2 output HDMI-A-2
-
-# ── Font ─────────────────────────────
+# Font
 font pango:DejaVu Sans Mono 10
 
-# ── Terminal ─────────────────────────
+# Start a terminal
 bindsym $mod+Return exec alacritty
 
-# ── Kill window ──────────────────────
+# Kill focused window
 bindsym $mod+Shift+q kill
 
-# ── App launcher ─────────────────────
+# Rofi launcher (better than dmenu)
 bindsym $mod+d exec wofi -show drun
 
-# ── Focus (vim + arrows) ─────────────
+# Change focus (vim keys)
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
+
+# Alternative arrow keys
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
-# ── Move window ──────────────────────
+# Move focused window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
 bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
+
+# Alternative arrow keys
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# ── Split ────────────────────────────
+# Split orientation
 bindsym $mod+v split v
 bindsym $mod+b split h
 
-# ── Layout ───────────────────────────
+# Fullscreen toggle
 bindsym $mod+f fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
+
+# Toggle floating
 bindsym $mod+Shift+space floating toggle
+
+# Change focus between tiling/floating
 bindsym $mod+space focus mode_toggle
+
+# Focus parent container
 bindsym $mod+a focus parent
 
-# ── Workspaces ───────────────────────
+# Workspaces
 set $ws1 "1"
 set $ws2 "2"
 set $ws3 "3"
@@ -73,6 +76,7 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws10 "10"
 
+# Switch to workspace
 bindsym $mod+1 workspace $ws1
 bindsym $mod+2 workspace $ws2
 bindsym $mod+3 workspace $ws3
@@ -84,6 +88,7 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+# Move container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
 bindsym $mod+Shift+3 move container to workspace $ws3
@@ -95,59 +100,89 @@ bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
 
-# ── Sway control ─────────────────────
+# Reload Sway config
 bindsym $mod+Shift+c reload
+
+# Exit i3
 bindsym $mod+Shift+e exec swaymsg exit
 
-# ── Resize mode ──────────────────────
+# Resize mode
 mode "resize" {
+    # vim keys
     bindsym h resize shrink width 10 px or 10 ppt
     bindsym j resize grow height 10 px or 10 ppt
     bindsym k resize shrink height 10 px or 10 ppt
     bindsym l resize grow width 10 px or 10 ppt
+
+    # arrow keys
     bindsym Left resize shrink width 10 px or 10 ppt
     bindsym Down resize grow height 10 px or 10 ppt
     bindsym Up resize shrink height 10 px or 10 ppt
     bindsym Right resize grow width 10 px or 10 ppt
+
+    # back to normal
     bindsym Return mode "default"
     bindsym Escape mode "default"
     bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
 
-# ── Volume ───────────────────────────
+# MacBook-specific: Brightness controls
+bindsym XF86MonBrightnessUp exec brightnessctl set +5%
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+
+# Keyboard backlight:
+bindsym XF86KbdBrightnessUp exec kbdlight up
+bindsym XF86KbdBrightnessDown exec kbdlight down
+
+# LightDM Manager
+bindsym $mod+Shift+m exec "sudo lightdm-gtk-greeter-settings-pkexec"
+
+# Volume controls
 bindsym XF86AudioRaiseVolume exec pactl set-sink-volume @DEFAULT_SINK@ +5%
 bindsym XF86AudioLowerVolume exec pactl set-sink-volume @DEFAULT_SINK@ -5%
 bindsym XF86AudioMute exec pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-# ── Screenshots ──────────────────────
+# Screenshot (requires scrot)
 bindsym $mod+p exec grim ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png
 bindsym $mod+Shift+p exec grim -g "$(slurp)" ~/Pictures/Screenshots/screenshot_$(date +%Y%m%d_%H%M%S).png
 
-# ── Lock screen ──────────────────────
+# Lock screen
 bindsym $mod+Shift+x exec swaylock -f -i /home/larryman/Pictures/glowing-arch-logo-blue-on-black.jpeg
 
-# ── Startup ──────────────────────────
-exec swaybg -i /home/larryman/Pictures/glowing-arch-logo-blue-on-black.jpeg
+# Startup applications
+exec swaybg -i /home/larryman/Pictures/desert-doom-sand-dunes-dark-background-monochrome-landscape-3840x2160-6409.jpg
 exec waybar
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec nm-applet --indicator
 exec swayidle -w \
-    timeout 3600 'swaylock -f -i /home/larryman/Pictures/glowing-arch-logo-blue-on-black.jpeg' \
+    timeout 900 'swaylock -f -i /home/larryman/Pictures/glowing-arch-logo-blue-on-black.jpeg' \
     timeout 1020 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -i /home/larryman/Pictures/glowing-arch-logo-blue-on-black.jpeg'
-exec_always /home/larryman/.config/sway/startup.sh
+    before-sleep 'swaylock -f -i /home/larryman/Pictures/glowing-arch-logo-blue-on-black.jpeg' 
+exec conky
 
-# ── Window appearance ────────────────
+# Conky Window Appearance
 gaps inner 10
 gaps outer 5
+default_border none
+
+# Settings for App Transparency
+
+#--- Firefox
+for_window [app_id="firefox"] opacity .90
+
+#--- Notion
+for_window [class="Notion"] opacity .90
+
+
+# Startup Scrips for Screen/Workstation Setup
+exec /home/larryman/.config/sway/startup_script_master.sh
+
+# Window Colors - Linked to Color Profiles
+include /home/larryman/.config/i3/colors.conf
+
+# Window borders
 default_border pixel 2
 default_floating_border pixel 2
-
-# ── Window colors ────────────────────
-include /home/larryman/.config/sway/colors.conf
-
-# ── Per-app rules ────────────────────
-for_window [app_id="firefox"] opacity 0.90
